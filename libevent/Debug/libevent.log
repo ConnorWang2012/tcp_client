@@ -1,0 +1,109 @@
+﻿生成启动时间为 2017/3/3 14:43:30。
+     1>项目“D:\my\proj\tcp_client\libevent\libevent.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ID:\my\proj\tcp_client\libevent\src /ID:\my\proj\tcp_client\libevent\src\compat /ID:\my\proj\tcp_client\libevent\src\include /ID:\my\proj\tcp_client\libevent\src\include\event2 /ID:\my\proj\tcp_client\libevent\src\include\openssl /I"D:\my\proj\tcp_client\libevent\src\WIN32-Code" /I"D:\my\proj\tcp_client\libevent\src\WIN32-Code\nmake" /I"D:\my\proj\tcp_client\libevent\src\WIN32-Code\nmake\event2" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\libevent.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ID:\my\proj\tcp_client\libevent\src /ID:\my\proj\tcp_client\libevent\src\compat /ID:\my\proj\tcp_client\libevent\src\include /ID:\my\proj\tcp_client\libevent\src\include\event2 /ID:\my\proj\tcp_client\libevent\src\include\openssl /I"D:\my\proj\tcp_client\libevent\src\WIN32-Code" /I"D:\my\proj\tcp_client\libevent\src\WIN32-Code\nmake" /I"D:\my\proj\tcp_client\libevent\src\WIN32-Code\nmake\event2" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt src\buffer.c src\bufferevent.c src\bufferevent_async.c src\bufferevent_filter.c src\bufferevent_openssl.c src\bufferevent_pair.c src\bufferevent_ratelim.c src\bufferevent_sock.c src\buffer_iocp.c src\devpoll.c src\epoll.c src\evdns.c src\event.c src\event_iocp.c src\event_tagging.c src\evmap.c src\evport.c src\evrpc.c src\evthread.c src\evthread_win32.c src\evutil.c src\evutil_rand.c src\evutil_time.c src\http.c src\kqueue.c src\listener.c src\log.c src\poll.c src\select.c src\signal.c src\strlcpy.c src\win32select.c
+         win32select.c
+         strlcpy.c
+         signal.c
+         select.c
+         poll.c
+         log.c
+         listener.c
+         kqueue.c
+         http.c
+         evutil_time.c
+     1>d:\my\proj\tcp_client\libevent\src\evutil_time.c(537): warning C4244: “=”: 从“__int64”转换到“long”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\evutil_time.c(542): warning C4244: “=”: 从“time_t”转换到“long”，可能丢失数据
+         evutil_rand.c
+         evutil.c
+         evthread_win32.c
+         evthread.c
+         evrpc.c
+         evport.c
+         evmap.c
+         event_tagging.c
+         event_iocp.c
+         event.c
+         正在生成代码...
+         正在编译...
+         evdns.c
+         epoll.c
+         devpoll.c
+         buffer_iocp.c
+         bufferevent_sock.c
+         bufferevent_ratelim.c
+         bufferevent_pair.c
+         bufferevent_openssl.c
+     1>d:\my\proj\tcp_client\libevent\src\include\openssl\lhash.h(198): warning C4090: “函数”: 不同的“const”限定符
+     1>d:\my\proj\tcp_client\libevent\src\bufferevent_openssl.c(552): warning C4244: “=”: 从“uint64_t”转换到“unsigned long”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\bufferevent_openssl.c(554): warning C4244: “=”: 从“uint64_t”转换到“unsigned long”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\bufferevent_openssl.c(560): warning C4244: “初始化”: 从“uint64_t”转换到“unsigned long”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\bufferevent_openssl.c(561): warning C4244: “初始化”: 从“uint64_t”转换到“unsigned long”，可能丢失数据
+         bufferevent_filter.c
+         bufferevent_async.c
+         bufferevent.c
+         buffer.c
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3096): warning C4244: “函数”: 从“const __int64”转换到“size_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3108): warning C4244: “函数”: 从“__int64”转换到“unsigned int”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3227): warning C4244: “=”: 从“__int64”转换到“ev_misalign_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3228): warning C4244: “=”: 从“__int64”转换到“size_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3229): warning C4244: “=”: 从“__int64”转换到“size_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3247): warning C4244: “函数”: 从“unsigned __int64”转换到“SIZE_T”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3253): warning C4244: “=”: 从“unsigned __int64”转换到“size_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3254): warning C4244: “=”: 从“unsigned __int64”转换到“ev_misalign_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3255): warning C4244: “=”: 从“__int64”转换到“size_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3263): warning C4244: “=”: 从“__int64”转换到“size_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3264): warning C4244: “=”: 从“__int64”转换到“size_t”，可能丢失数据
+     1>d:\my\proj\tcp_client\libevent\src\buffer.c(3268): warning C4244: “+=”: 从“__int64”转换到“size_t”，可能丢失数据
+         正在生成代码...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"D:\my\proj\tcp_client\Debug\libevent.lib" libssl.lib libcrypto.lib ws2_32.lib /LIBPATH:D:\my\proj\tcp_client\libevent\lib\openssl /NOLOGO Debug\buffer.obj
+         Debug\bufferevent.obj
+         Debug\bufferevent_async.obj
+         Debug\bufferevent_filter.obj
+         Debug\bufferevent_openssl.obj
+         Debug\bufferevent_pair.obj
+         Debug\bufferevent_ratelim.obj
+         Debug\bufferevent_sock.obj
+         Debug\buffer_iocp.obj
+         Debug\devpoll.obj
+         Debug\epoll.obj
+         Debug\evdns.obj
+         Debug\event.obj
+         Debug\event_iocp.obj
+         Debug\event_tagging.obj
+         Debug\evmap.obj
+         Debug\evport.obj
+         Debug\evrpc.obj
+         Debug\evthread.obj
+         Debug\evthread_win32.obj
+         Debug\evutil.obj
+         Debug\evutil_rand.obj
+         Debug\evutil_time.obj
+         Debug\http.obj
+         Debug\kqueue.obj
+         Debug\listener.obj
+         Debug\log.obj
+         Debug\poll.obj
+         Debug\select.obj
+         Debug\signal.obj
+         Debug\strlcpy.obj
+         Debug\win32select.obj
+         Debug\stdafx.obj
+     1>libcrypto.lib(libcrypto-1_1.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR 已在 libssl.lib(libssl-1_1.dll) 中定义；已忽略第二个定义
+     1>libcrypto.lib(libcrypto-1_1.dll) : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+     1>ws2_32.lib(WS2_32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR 已在 libssl.lib(libssl-1_1.dll) 中定义；已忽略第二个定义
+     1>ws2_32.lib(WS2_32.dll) : warning LNK4221: 此对象文件未定义任何之前未定义的公共符号，因此任何耗用此库的链接操作都不会使用此文件
+         libevent.vcxproj -> D:\my\proj\tcp_client\Debug\libevent.lib
+       PostBuildEvent:
+         xcopy "D:\my\proj\tcp_client\Debug\*.lib" "D:\my\proj\tcp_client\tcp_client\lib" /D /E /I /F /Y
+         :VCEnd
+         D:\my\proj\tcp_client\Debug\libevent.lib -> D:\my\proj\tcp_client\tcp_client\lib\libevent.lib
+         复制了 1 个文件
+     1>已完成生成项目“D:\my\proj\tcp_client\libevent\libevent.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:09.86

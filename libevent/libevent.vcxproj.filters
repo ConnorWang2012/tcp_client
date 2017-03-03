@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\libevent">
+      <UniqueIdentifier>{e61e453e-4e71-43b7-991a-afab2803ab36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libevent\WIN32-Code">
+      <UniqueIdentifier>{3a247e09-70eb-4fdc-806a-e6ad05bcf9a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libevent\compat">
+      <UniqueIdentifier>{8f8a2870-5602-4c4b-b196-ca3e0e9f5285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libevent\include">
+      <UniqueIdentifier>{c7a08ceb-f97a-4e82-b8b8-60c579c07f33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libevent\include\event2">
+      <UniqueIdentifier>{bd48c5f6-8426-4d12-b2c0-0c43886f2c75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bufferevent-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\changelist-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\defer-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\epolltable-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\evbuffer-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\evconfig-private.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\event-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\evmap-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\evrpc-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\evsignal-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\evthread-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ht-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\http-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\iocp-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ipv6-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kqueue-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\log-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\minheap-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mm-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\openssl-compat.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ratelim-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\strlcpy-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\time-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util-internal.h">
+      <Filter>源文件\libevent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WIN32-Code\nmake\evconfig-private.h">
+      <Filter>源文件\libevent\WIN32-Code</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WIN32-Code\nmake\event2\event-config.h">
+      <Filter>源文件\libevent\WIN32-Code</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WIN32-Code\tree.h">
+      <Filter>源文件\libevent\WIN32-Code</Filter>
+    </ClInclude>
+    <ClInclude Include="src\compat\sys\queue.h">
+      <Filter>源文件\libevent\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\buffer.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\bufferevent.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\bufferevent_compat.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\bufferevent_ssl.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\bufferevent_struct.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\buffer_compat.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\dns.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\dns_compat.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\dns_struct.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\event.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\event_compat.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\event_struct.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\http.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\http_compat.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\http_struct.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\keyvalq_struct.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\listener.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\rpc.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\rpc_compat.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\rpc_struct.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\tag.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\tag_compat.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\thread.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\util.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event2\visibility.h">
+      <Filter>源文件\libevent\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\event.h">
+      <Filter>源文件\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\evhttp.h">
+      <Filter>源文件\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\evrpc.h">
+      <Filter>源文件\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\evutil.h">
+      <Filter>源文件\libevent\include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\evdns.h">
+      <Filter>源文件\libevent\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\buffer_iocp.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bufferevent.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bufferevent_async.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bufferevent_filter.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bufferevent_openssl.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bufferevent_pair.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bufferevent_ratelim.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bufferevent_sock.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\devpoll.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\epoll.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evdns.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\event.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\event_iocp.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\event_tagging.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evmap.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evport.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evrpc.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evthread.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evthread_win32.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evutil.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evutil_rand.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\evutil_time.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\http.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kqueue.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\listener.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\log.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\poll.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\select.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\signal.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\strlcpy.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32select.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\buffer.c">
+      <Filter>源文件\libevent</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
