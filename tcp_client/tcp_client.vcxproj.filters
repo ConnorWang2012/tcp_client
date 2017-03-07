@@ -351,12 +351,18 @@
     <ClInclude Include="..\libevent\src\include\evutil.h">
       <Filter>头文件\include\libevent</Filter>
     </ClInclude>
+    <ClInclude Include="src\network_manager.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\network_manager.cc">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
