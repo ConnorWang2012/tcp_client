@@ -1,49 +1,70 @@
-
 #include "network_manager.h"
 
-#ifdef _WIN32
+#if defined(_WIN32)
 #include <WinSock2.h>
+#elif defined(__linux__)
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#elif defined(__APPLE__)
 #endif
+
+#include "event2/buffer.h"
+#include "event2/bufferevent.h"
+#include "event2/event.h"
 
 namespace gamer
 {
-NetworkManager* NetworkManager::s_shared_network_manager_ = nullptr;
 
 NetworkManager::NetworkManager()
 {
 
 }
 
-NetworkManager::~NetworkManager()
+NetworkManager::NetworkManager(const std::string& ip, int port)
+	:ip_(ip)
+	,port_(port)
 {
 
 }
 
 NetworkManager* NetworkManager::getInstance()
 {
-	if (nullptr == s_shared_network_manager_)
+	static NetworkManager s_network_mgr; 
+	return &s_network_mgr;
+}
+
+void NetworkManager::set_ip(const std::string& ip)
+{
+	ip_ = ip;
+}
+
+const std::string& NetworkManager::ip() const
+{
+	return ip_;
+}
+
+void NetworkManager::set_port(int port)
+{
+	port_ = port;
+}
+
+int NetworkManager::port() const
+{
+	return port_;
+}
+
+void NetworkManager::connect()
+{
+	this->initIPAndPort();
+
+	if (evbase_ && bev_)
 	{
-		s_shared_network_manager_ = new NetworkManager();
-		if( !s_shared_network_manager_->init() )
-		{
-			//SAFE_DELETE(s_shared_network_manager_);
-			//CCLOG("event_manager init failed!");
-	    }
+		auto ret = event_base_loopcontinue(evbase_);
+		printf("[NetworkManager::connect] ret : %d", ret);
+		return;
 	}
-	return s_shared_network_manager_;
-}
 
-void NetworkManager::destoryInstance()
-{
-	//SAFE_DELETE(s_shared_network_manager_);
-}
-
-void NetworkManager::initSocket()
-{
-	initIPAndPort();
-
-	struct event_base* base;
-	struct bufferevent* bev;
 	struct sockaddr_in sin;
 
 #ifdef _WIN32
@@ -51,37 +72,62 @@ void NetworkManager::initSocket()
 	WSAStartup(0x0201, &wsa_data);
 #endif
 
-	base = event_base_new();
-	if (!base) 
+	if (nullptr == evbase_)
+	{
+		evbase_ = event_base_new();
+	}
+
+	if (nullptr == evbase_)
 	{
 		perror("event_base_new failed!");
+		return;
+		// TODO : dispatch event_base_new failed event
 	}
 
 	memset(&sin, 0, sizeof(sin));
 	sin.sin_family = AF_INET;
 	sin.sin_addr.s_addr = inet_addr(ip_.c_str());
+	//sin.sin_addr.s_addr = inet_pton(AF_INET, ip_.c_str(), &sin);
 	sin.sin_port = htons(port_);
 
-	bev = (bufferevent*)bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
-	if (!bev) 
+	if (nullptr == bev_)
+	{
+		bev_ = bufferevent_socket_new(evbase_, -1, BEV_OPT_CLOSE_ON_FREE);
+	}
+
+	if (nullptr == bev_)
 	{
 		perror("bufferevent_socket_new failed!");
+		return;
+		// TODO : dispatch bufferevent_socket_new failed event
 	}
-	
-	bufferevent_setcb(bev, 
-		&gamer::NetworkManager::onBuffereventRead, 
-		&gamer::NetworkManager::onBuffereventWrite, 
-		&gamer::NetworkManager::onBuffereventArrive, NULL);
 
-	bufferevent_enable((bufferevent*)bev, EV_READ | EV_WRITE | EV_PERSIST);
+	bufferevent_setcb(bev_,
+		&gamer::NetworkManager::onBuffereventRead,
+		&gamer::NetworkManager::onBuffereventWrite,
+		&gamer::NetworkManager::onBuffereventArrive,
+		NULL);
 
-	if (-1 == bufferevent_socket_connect(bev, (struct sockaddr*)&sin, sizeof(sin))) 
+	bufferevent_enable(static_cast<bufferevent*>(bev_), EV_READ | EV_WRITE | EV_PERSIST);
+
+	if (-1 == bufferevent_socket_connect(bev_, (struct sockaddr*)&sin, sizeof(sin)))
 	{
 		perror("bufferevent_socket_connect failed!");
+		return;
+		// TODO : dispatch bufferevent_socket_connect failed event
 	}
 
-	//event_base_dispatch(base);
-	event_base_loop(base, EVLOOP_NONBLOCK);
+	//event_base_dispatch(evbase_);
+	event_base_loop(evbase_, EVLOOP_NONBLOCK | EVLOOP_NO_EXIT_ON_EMPTY);
+}
+
+void NetworkManager::disconnect()
+{
+	if (evbase_)
+	{
+		auto ret = event_base_loopexit(evbase_, NULL);
+		printf("[NetworkManager::disconnect] ret : %d", ret);
+	}
 }
 
 void NetworkManager::onBuffereventArrive(struct bufferevent* bev, short event, void* ctx) 
@@ -89,34 +135,40 @@ void NetworkManager::onBuffereventArrive(struct bufferevent* bev, short event, v
 	if (event & BEV_EVENT_ERROR) 
 	{
 		printf("error from bufferevent!");
+		// TODO : dispatch error from bufferevent event
 	}
 
 	if (event & (BEV_EVENT_EOF | BEV_EVENT_ERROR)) 
 	{
 		bufferevent_free(bev);
+		printf("error from bufferevent, free bufferevent!");
+		// TODO : dispatch error from bufferevent, free bufferevent event
 	}
 
 	if (event & BEV_EVENT_CONNECTED) 
 	{
 		printf("client connected\n");
+		// TODO : dispatch client connected success event
+
 		//write_cb(bev, NULL);
 		//char msg[] = "client connected";
 		//bufferevent_write(bev, msg, sizeof(msg));
-		struct evbuffer* input = bufferevent_get_input(bev);
-		struct evbuffer* output = bufferevent_get_output(bev);
-		evbuffer_add_printf(output, "client msg : %s", "client connected");
+		auto input = bufferevent_get_input(bev);
+		auto output = bufferevent_get_output(bev);
+		evbuffer_add_printf(output, "client msg : %s", "client connected 2");
 	} 
 	else if (event & BEV_EVENT_TIMEOUT) 
 	{
 		printf("client connect timeout");
+		// TODO : dispatch client connect timeout event
 	}
 }
 
 void NetworkManager::onBuffereventRead(struct bufferevent* bev, void* ctx) 
 {
 	// This callback is invoked when there is data to read on bev.
-	struct evbuffer* input = bufferevent_get_input(bev);
-	struct evbuffer* output = bufferevent_get_output(bev);
+	auto input = bufferevent_get_input(bev);
+	auto output = bufferevent_get_output(bev);
 
 	//if (my_n < 5) {
 	//	my_n++;
@@ -137,15 +189,10 @@ void NetworkManager::onBuffereventWrite(struct bufferevent* bev, void* ctx)
 	//bufferevent_write(bev, msg, sizeof(msg));
 }
 
-bool NetworkManager::init()
-{
-	return true;
-}
-
 void NetworkManager::initIPAndPort()
 {
 	ip_ = "127.0.0.1";
-	port_ = 9876;
+	port_ = 4994;
 }
 
 } // namespace gamer
