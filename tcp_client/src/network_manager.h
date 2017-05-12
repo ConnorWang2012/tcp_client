@@ -2,13 +2,18 @@
 #ifndef CITY_HUNTER_SRC_NETWORK_MANAGER_H_
 #define CITY_HUNTER_SRC_NETWORK_MANAGER_H_
 
+#include <functional>
 #include <string>
 
 struct bufferevent;
 struct event_base;
 
+//typedef std::function<void(short)> RequestCallback;
+
 namespace gamer
 {
+
+typedef std::function<void(short)> ResponeCallback;
 
 class NetworkManager
 {
@@ -33,6 +38,8 @@ public:
 
 	void disconnect();
 
+	void send(void* ctx, size_t ctxlen, const ResponeCallback& cb);
+
 private:
 	NetworkManager();
 
@@ -53,6 +60,9 @@ private:
 
 	std::string ip_;
 	int port_;
+
+	static const int MAX_MSG_LEN = 4096;
+	ResponeCallback request_callback_;
 };
 
 } // namespace gamer

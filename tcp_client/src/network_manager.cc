@@ -130,6 +130,24 @@ void NetworkManager::disconnect()
 	}
 }
 
+void NetworkManager::send(void* ctx, size_t ctxlen, const ResponeCallback& cb)
+{
+	if (nullptr == ctx)
+	{
+		printf("[NetworkManager::send] context invalid");
+		return;
+	}
+
+	if (ctxlen > NetworkManager::MAX_MSG_LEN)
+	{
+		printf("[NetworkManager::send] context len invalid");
+		return;
+	}
+
+	bufferevent_write(bev_, ctx, ctxlen);
+	request_callback_ = cb;
+}
+
 void NetworkManager::onBuffereventArrive(struct bufferevent* bev, short event, void* ctx) 
 {
 	if (event & BEV_EVENT_ERROR) 
@@ -155,7 +173,9 @@ void NetworkManager::onBuffereventArrive(struct bufferevent* bev, short event, v
 		//bufferevent_write(bev, msg, sizeof(msg));
 		auto input = bufferevent_get_input(bev);
 		auto output = bufferevent_get_output(bev);
-		evbuffer_add_printf(output, "client msg : %s", "client connected 2");
+		//evbuffer_add_printf(output, "client msg : %s", "client connected 2");
+		char msg[] = "login";
+		gamer::NetworkManager::getInstance()->send(msg, sizeof(msg), [&](short i) {});
 	} 
 	else if (event & BEV_EVENT_TIMEOUT) 
 	{

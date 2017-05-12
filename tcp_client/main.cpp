@@ -1,5 +1,3 @@
-//#include "stdafx.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -8,6 +6,10 @@
 
 int main(int argc, char* argv[])
 {
-	gamer::NetworkManager::getInstance()->initSocket();
+	gamer::NetworkManager::getInstance()->connect();
+	//gamer::NetworkManager::getInstance()->disconnect();
+	//gamer::NetworkManager::getInstance()->connect();
+	
+	system("pause");
 	return 0;
 }
